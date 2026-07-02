@@ -1,0 +1,40 @@
+@include('admin.layout.head')
+<div class="layuimini-container">
+    <div class="layuimini-main">
+
+        <form id="app-form" class="layui-form layuimini-form">
+
+            <div class="layui-form-item">
+                <label class="layui-form-label required">ログインアカウント</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" class="layui-input layui-disabled" readonly value="{{$row['username']}}">
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">ログインパスワード</label>
+                <div class="layui-input-block">
+                    <input type="password" name="password" class="layui-input" lay-verify="required" lay-reqtext="ログインパスワードを入力してください" placeholder="ログインパスワードを入力してください" value="">
+                    <tip>ログインパスワードを入力。</tip>
+                </div>
+            </div>
+
+            <div class="layui-form-item">
+                <label class="layui-form-label">確認パスワード</label>
+                <div class="layui-input-block">
+                    <input type="password" name="password_again" class="layui-input" lay-verify="required" lay-reqtext="確認パスワードを入力してください" placeholder="確認パスワードを入力してください" value="">
+                    <tip>パスワードを再入力。</tip>
+                </div>
+            </div>
+
+            <div class="hr-line"></div>
+            <div class="layui-form-item text-center">
+                <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit>確認</button>
+                <button type="reset" class="layui-btn layui-btn-primary layui-btn-sm">リセット</button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+@include('admin.layout.foot')

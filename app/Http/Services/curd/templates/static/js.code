@@ -1,0 +1,92 @@
+define(["jquery", "easy-admin"], function ($, ea) {
+
+    var init = {
+        table_elem: '#currentTable',
+        table_render_id: 'currentTableRenderId',
+        index_url: '{{controllerUrl}}/index',
+        add_url: '{{controllerUrl}}/add',
+        edit_url: '{{controllerUrl}}/edit',
+        delete_url: '{{controllerUrl}}/delete',
+        export_url: '{{controllerUrl}}/export',
+        modify_url: '{{controllerUrl}}/modify',
+        recycle_url: '{{controllerUrl}}/recycle',
+    };
+
+    return Controller = {
+
+        index: function () {
+            ea.table.render({
+                init: init,
+                cols: [[
+                {{indexCols}}
+                ]],
+            });
+
+            ea.listen();
+        },
+        add: function () {
+            ea.listen();
+        },
+        edit: function () {
+            ea.listen();
+        },
+        recycle: function () {
+            init.index_url = init.recycle_url;
+            ea.table.render({
+                init: init,
+                toolbar: ['refresh',
+                    [{
+                        class: 'layui-btn layui-btn-sm',
+                        method: 'get',
+                        field: 'id',
+                        icon: 'fa fa-refresh',
+                        text: 'すべて復元',
+                        title: '復元してもよろしいですか？',
+                        auth: 'recycle',
+                        url: init.recycle_url + '?type=restore',
+                        checkbox: true
+                    }, {
+                        class: 'layui-btn layui-btn-danger layui-btn-sm',
+                        method: 'get',
+                        field: 'id',
+                        icon: 'fa fa-delete',
+                        text: '完全削除',
+                        title: '确定完全削除？',
+                        auth: 'recycle',
+                        url: init.recycle_url + '?type=delete',
+                        checkbox: true
+                    }], 'export',
+                ],
+                cols: [[
+                {{recycleCols}}
+                    {
+                        width: 250,
+                        title: '操作',
+                        templet: ea.table.tool,
+                        operat: [
+                            [{
+                                title: '復元してもよろしいですか？',
+                                text: 'データを復元',
+                                filed: 'id',
+                                url: init.recycle_url + '?type=restore',
+                                method: 'get',
+                                auth: 'recycle',
+                                class: 'layui-btn layui-btn-xs layui-btn-success',
+                            }, {
+                                title: '本当に実行しますか？',
+                                text: '完全削除',
+                                filed: 'id',
+                                method: 'get',
+                                url: init.recycle_url + '?type=delete',
+                                auth: 'recycle',
+                                class: 'layui-btn layui-btn-xs layui-btn-normal layui-bg-red',
+                            }]]
+                    }
+                ]],
+            });
+
+            ea.listen();
+        },
+    };
+
+});
