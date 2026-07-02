@@ -1,4 +1,19 @@
+function loadJaMsg() {
+    return import('/static/plugs/layui-v2.x/i18n/ja.js?v=' + window.CONFIG.VERSION)
+}
+
 define(["jquery", "tableSelect", "switchSelect", "miniTheme", "xmSelect", "lazyload"], function ($, tableSelect, switchSelect, miniTheme, xmSelect, lazyload) {
+
+    loadJaMsg().then(mod => {
+        const ja = mod.default
+        console.log(ja)
+        // 只做初始化i18n配置
+        layui.i18n.set({
+            locale: 'ja',
+            messages: {ja},
+        });
+    })
+
 
     //昼夜モード切替
     window.onInitElemStyle = function () {
@@ -330,7 +345,7 @@ define(["jquery", "tableSelect", "switchSelect", "miniTheme", "xmSelect", "lazyl
                             }
                         } else if (v === 'recycle') {
                             if (init.recycle_url === undefined) {
-                                console.warn('未定义回收站地址 init.recycle_url')
+                                console.warn('未定義のゴミ箱アドレス\n init.recycle_url')
                                 return false
                             }
                             if (admin.checkAuth('recycle', elem)) {
@@ -486,12 +501,13 @@ define(["jquery", "tableSelect", "switchSelect", "miniTheme", "xmSelect", "lazyl
                     $.each(newCols, function (ncI, ncV) {
                         if (ncV.search === 'range' || ncV.search === 'datetime') {
                             laydate.render({
+                                lang: 'en',
                                 range: true, type: ncV.timeType, elem: '[name="' + ncV.fieldAlias + '"]', rangeLinked: true,
                                 shortcuts: getRangeShortcuts()
                             });
                         }
                         if (ncV.search === 'time') {
-                            laydate.render({type: ncV.timeType, elem: '[name="' + ncV.fieldAlias + '"]'});
+                            laydate.render({lang: 'en', type: ncV.timeType, elem: '[name="' + ncV.fieldAlias + '"]'});
                         }
                     });
                 }
@@ -1062,14 +1078,14 @@ define(["jquery", "tableSelect", "switchSelect", "miniTheme", "xmSelect", "lazyl
                         if ($t.hasClass('layui-disabled') || $t.hasClass('layui-btn-disabled')) return;
                         if ($t.hasClass('layui-laypage-btn')) {
                             let v = parseInt($topPage.find('input').val());
-                            if (v > 0) layui.table.reload(bid, { page: { curr: v } });
+                            if (v > 0) layui.table.reload(bid, {page: {curr: v}});
                             return;
                         }
                         let page = $t.data('page');
                         if (page !== undefined) {
                             let pn = parseInt(page);
                             if (!isNaN(pn) && pn > 0) {
-                                layui.table.reload(bid, { page: { curr: pn } });
+                                layui.table.reload(bid, {page: {curr: pn}});
                                 return;
                             }
                         }
@@ -1082,12 +1098,12 @@ define(["jquery", "tableSelect", "switchSelect", "miniTheme", "xmSelect", "lazyl
                         }
                     });
                     $topPage.on('change', 'select', function () {
-                        layui.table.reload(bid, { page: { limit: parseInt(this.value) } });
+                        layui.table.reload(bid, {page: {limit: parseInt(this.value)}});
                     });
                     $topPage.on('keydown', 'input', function (e) {
                         if (e.keyCode === 13) {
                             let v = parseInt(this.value);
-                            if (v > 0) layui.table.reload(bid, { page: { curr: v } });
+                            if (v > 0) layui.table.reload(bid, {page: {curr: v}});
                         }
                     });
                     let bottomEl = $bottomPage[0];
@@ -1102,7 +1118,7 @@ define(["jquery", "tableSelect", "switchSelect", "miniTheme", "xmSelect", "lazyl
                                 });
                             }
                         });
-                        obs.observe(bottomEl, { childList: true, subtree: true, characterData: true, attributes: true });
+                        obs.observe(bottomEl, {childList: true, subtree: true, characterData: true, attributes: true});
                     }
                 } catch (e) {
                 }
@@ -1462,7 +1478,7 @@ define(["jquery", "tableSelect", "switchSelect", "miniTheme", "xmSelect", "lazyl
                         ids.push(v[_filed]);
                     });
                 }
-admin.msg.confirm('削除してもよろしいですか？', function () {
+                admin.msg.confirm('削除してもよろしいですか？', function () {
                     admin.request.post({
                         url: url,
                         data: {
@@ -1786,16 +1802,16 @@ admin.msg.confirm('削除してもよろしいですか？', function () {
                                                 async customInsert(res, insertFn) {
                                                     let code = res.code || 0
                                                     if (code != '1') {
-                                                         layer.msg(res.msg || 'アップロード失敗', {icon: 2});
-                                                         return
-                                                     }
-                                                     let url = res.data?.url || ''
-                                                     let alt = ''
-                                                     let href = ''
-                                                     insertFn(url, alt, href)
-                                                 }
-                                             },
-                                             // 動画アップロード
+                                                        layer.msg(res.msg || 'アップロード失敗', {icon: 2});
+                                                        return
+                                                    }
+                                                    let url = res.data?.url || ''
+                                                    let alt = ''
+                                                    let href = ''
+                                                    insertFn(url, alt, href)
+                                                }
+                                            },
+                                            // 動画アップロード
                                             uploadVideo: {
                                                 server: window.CONFIG.ADMIN_UPLOAD_URL,
                                                 fieldName: 'file',
@@ -1933,6 +1949,7 @@ admin.msg.confirm('削除してもよろしいですか？', function () {
                             }
                             options['range'] = range;
                         }
+                        options['lang'] = 'en';
                         laydate.render(options);
                     });
                 }

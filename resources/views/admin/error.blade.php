@@ -68,7 +68,7 @@
         .system-message .btn {
             display: inline-block;
             margin-right: 10px;
-            width: 138px;
+            min-width: 138px;
             height: 2pc;
             border: 1px solid #44a0e8;
             border-radius: 30px;

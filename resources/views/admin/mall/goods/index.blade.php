@@ -1,5 +1,4 @@
 @include('admin.layout.head')
-<script src="/static/common/js/zone.js?v={{$version}}"></script>
 <div class="layuimini-container">
     <div class="layuimini-main">
         <table id="currentTable" class="layui-table layui-hide"

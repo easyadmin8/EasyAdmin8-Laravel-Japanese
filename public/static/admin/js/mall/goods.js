@@ -51,10 +51,6 @@ define(["jquery", "easy-admin"], function ($, ea) {
                             return res?.status2 || 'サンプルデータ'
                         }
                     },
-                    {field: 'province', minWidth: 80, title: '都道府県', toolbar: '#provinceDemo', search: 'select', hide: true},
-                    {field: 'city', minWidth: 80, title: '市区町村', toolbar: '#cityDemo', search: 'select', hide: true},
-                    {field: 'area', minWidth: 80, title: '地域', toolbar: '#areaDemo', search: 'select', hide: true},
-                    {field: 'create_time', minWidth: 80, title: '作成日時', search: 'range'},
                     {
                         minWidth: 250,
                         title: '操作',
@@ -96,53 +92,6 @@ define(["jquery", "easy-admin"], function ($, ea) {
                     })
                 }
             });
-
-            let form = layui.form
-            let provinceHtml = ``, cityHtml = ``, areaHtml = ``
-            let provinceCityData = [], cityAreaData = []
-            // 初回表示時に都道府県・市区町村・地域をデフォルト描画
-            areaData.forEach(item => {
-                provinceHtml += `<option value="${item.value}">${item.label}</option>`
-                provinceCityData[item.value] = item.children
-            })
-            $('#c-province').html(provinceHtml)
-            $('#c-city').html(cityHtml)
-            $('#c-area').html(areaHtml)
-            form.render('select');
-
-            // 都道府県選択を監視
-            form.on('select(province)', function (data) {
-                let value = data.value
-                let cityHtml = ``
-                let areaHtml = ``
-                if (!value) {
-                    cityHtml = areaHtml = ``
-                } else {
-                    provinceCityData[value].forEach(item => {
-                        cityHtml += `<option value="${item.value}">${item.label}</option>`
-                        cityAreaData[item.value] = item.children
-                        item.children.forEach(item2 => {
-                            areaHtml += `<option value="${item2.value}">${item2.label}</option>`
-                        })
-                    })
-                }
-                $('#c-city').html(cityHtml)
-                $('#c-area').html(areaHtml)
-                form.render('select')
-            })
-
-            // 市区町村選択を監視
-            form.on('select(city)', function (data) {
-                let value = data.value
-                let areaHtml = ``
-                if (value) {
-                    cityAreaData[value].forEach(item => {
-                        areaHtml += `<option value="${item.value}">${item.label}</option>`
-                    })
-                }
-                $('#c-area').html(areaHtml)
-                form.render('select')
-            })
 
             ea.listen();
         },
