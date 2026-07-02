@@ -210,9 +210,9 @@ CREATE TABLE `ea_system_config`
 -- Records of ea_system_config
 -- ----------------------------
 INSERT INTO `ea_system_config`
-VALUES ('1', 'alisms_access_key_id', 'sms', '填你的', 'Alibaba Cloud SMS 公開鍵', '0', null, null);
+VALUES ('1', 'alisms_access_key_id', 'sms', 'あなたの', 'Alibaba Cloud SMS 公開鍵', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('2', 'alisms_access_key_secret', 'sms', '填你的', 'Alibaba Cloud SMS 秘密鍵', '0', null, null);
+VALUES ('2', 'alisms_access_key_secret', 'sms', 'あなたの', 'Alibaba Cloud SMS 秘密鍵', '0', null, null);
 INSERT INTO `ea_system_config`
 VALUES ('3', 'upload_type', 'upload', 'local', '現在のアップロード方式（local,oss,cos）', '0', null, null);
 INSERT INTO `ea_system_config`
@@ -224,15 +224,15 @@ VALUES ('6', 'upload_allow_mime', 'upload', 'image/gif,image/jpeg,video/x-msvide
 INSERT INTO `ea_system_config`
 VALUES ('7', 'upload_allow_type', 'upload', 'local,oss,qnoss,cos', '利用可能なアップロード方式', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('8', 'oss_access_key_id', 'upload', '填你的', 'Alibaba Cloud OSS 公開鍵', '0', null, null);
+VALUES ('8', 'oss_access_key_id', 'upload', 'あなたの', 'Alibaba Cloud OSS 公開鍵', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('9', 'oss_access_key_secret', 'upload', '填你的', 'Alibaba Cloud OSS 秘密鍵', '0', null, null);
+VALUES ('9', 'oss_access_key_secret', 'upload', 'あなたの', 'Alibaba Cloud OSS 秘密鍵', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('10', 'oss_endpoint', 'upload', '填你的', 'Alibaba Cloud OSS データセンター', '0', null, null);
+VALUES ('10', 'oss_endpoint', 'upload', 'あなたの', 'Alibaba Cloud OSS データセンター', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('11', 'oss_bucket', 'upload', '填你的', 'Alibaba Cloud OSS バケット名', '0', null, null);
+VALUES ('11', 'oss_bucket', 'upload', 'あなたの', 'Alibaba Cloud OSS バケット名', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('12', 'oss_domain', 'upload', '填你的', 'Alibaba Cloud OSS アクセスドメイン', '0', null, null);
+VALUES ('12', 'oss_domain', 'upload', 'あなたの', 'Alibaba Cloud OSS アクセスドメイン', '0', null, null);
 INSERT INTO `ea_system_config`
 VALUES ('13', 'logo_title', 'site', 'EasyAdmin', 'LOGOタイトル', '0', null, null);
 INSERT INTO `ea_system_config`
@@ -242,37 +242,37 @@ VALUES ('15', 'site_name', 'site', 'EasyAdmin管理システム', 'サイト名'
 INSERT INTO `ea_system_config`
 VALUES ('16', 'site_ico', 'site', '/favicon.ico', 'ブラウザアイコン', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('17', 'site_copyright', 'site', '填你的', '著作権情報', '0', null, null);
+VALUES ('17', 'site_copyright', 'site', 'あなたの', '著作権情報', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('18', 'site_beian', 'site', '填你的', '備案情報', '0', null, null);
+VALUES ('18', 'site_beian', 'site', 'あなたの', '備案情報', '0', null, null);
 INSERT INTO `ea_system_config`
 VALUES ('19', 'site_version', 'site', '2.0.0', 'バージョン情報', '0', null, null);
 INSERT INTO `ea_system_config`
 VALUES ('20', 'sms_type', 'sms', 'alisms', 'SMSタイプ', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('21', 'miniapp_appid', 'wechat', '填你的', 'ミニアプリ公開鍵', '0', null, null);
+VALUES ('21', 'miniapp_appid', 'wechat', 'あなたの', 'ミニアプリ公開鍵', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('22', 'miniapp_appsecret', 'wechat', '填你的', 'ミニアプリ秘密鍵', '0', null, null);
+VALUES ('22', 'miniapp_appsecret', 'wechat', 'あなたの', 'ミニアプリ秘密鍵', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('23', 'web_appid', 'wechat', '填你的', '公式アカウント公開鍵', '0', null, null);
+VALUES ('23', 'web_appid', 'wechat', 'あなたの', '公式アカウント公開鍵', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('24', 'web_appsecret', 'wechat', '填你的', '公式アカウント秘密鍵', '0', null, null);
+VALUES ('24', 'web_appsecret', 'wechat', 'あなたの', '公式アカウント秘密鍵', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('25', 'cos_secret_id', 'upload', '填你的', 'Tencent Cloud COS 秘密鍵', '0', null, null);
+VALUES ('25', 'cos_secret_id', 'upload', 'あなたの', 'Tencent Cloud COS 秘密鍵', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('26', 'cos_secret_key', 'upload', '填你的', 'Tencent Cloud COS 秘密鍵', '0', null, null);
+VALUES ('26', 'cos_secret_key', 'upload', 'あなたの', 'Tencent Cloud COS 秘密鍵', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('27', 'cos_region', 'upload', '填你的', 'ストレージバケットリージョン', '0', null, null);
+VALUES ('27', 'cos_region', 'upload', 'あなたの', 'ストレージバケットリージョン', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('28', 'cos_bucket', 'upload', '填你的', 'ストレージバケット名', '0', null, null);
+VALUES ('28', 'cos_bucket', 'upload', 'あなたの', 'ストレージバケット名', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('29', 'qnoss_access_key', 'upload', '填你的', 'アクセスキー', '0', null, null);
+VALUES ('29', 'qnoss_access_key', 'upload', 'あなたの', 'アクセスキー', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('30', 'qnoss_secret_key', 'upload', '填你的', 'セキュリティキー', '0', null, null);
+VALUES ('30', 'qnoss_secret_key', 'upload', 'あなたの', 'セキュリティキー', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('31', 'qnoss_bucket', 'upload', '填你的', 'ストレージスペース', '0', null, null);
+VALUES ('31', 'qnoss_bucket', 'upload', 'あなたの', 'ストレージスペース', '0', null, null);
 INSERT INTO `ea_system_config`
-VALUES ('32', 'qnoss_domain', 'upload', '填你的', 'アクセスドメイン', '0', null, null);
+VALUES ('32', 'qnoss_domain', 'upload', 'あなたの', 'アクセスドメイン', '0', null, null);
 
 -- ----------------------------
 -- Table structure for ea_system_menu
