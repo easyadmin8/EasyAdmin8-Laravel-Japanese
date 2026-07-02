@@ -21,6 +21,9 @@
 >
 > プロジェクトURL：[http://easyadmin8.top](http://easyadmin8.top)
 >
+> デモURL：
+> - `13.x` [http://japanese-laravel.easyadmin8.top/admin](http://japanese-laravel.easyadmin8.top/admin)
+>
 > 【アクセスできない場合は、ローカル環境で構築して確認するか、下記の画面プレビューを参照してください】
 
 ## インストール手順
