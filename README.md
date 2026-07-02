@@ -60,7 +60,7 @@ location / {
 
 ## 画面プレビュー
 
-![EasyAdmin8-01](public/static/common/images/easyadmin8-01.png)
+![EasyAdmin8-01](public/static/common/images/EasyAdmin8-01.png)
 
 ## 関連ドキュメント
 
